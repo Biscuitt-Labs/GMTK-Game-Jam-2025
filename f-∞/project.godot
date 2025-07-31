@@ -14,3 +14,7 @@ config/name="f-∞"
 run/main_scene="uid://76141p01etpl"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[physics]
+
+common/physics_ticks_per_second=120
