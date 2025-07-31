@@ -1,29 +1,57 @@
 extends CharacterBody3D
 
-@export var acceleration := 10.0
-@export var max_speed := 20.0
-@export var turn_speed := 2.0
+@export var acceleration := 20.0       # How fast the car speeds up
+@export var deceleration := 8.0        # How fast the car slows down when not accelerating
+@export var max_speed := 30.0          # Max forward speed
+@export var turn_speed := 2.5          # How fast the car turns
+@export var gravity := 8.0           # Gravity pulling the car down
+
+var speed := 0.0   # Current forward/backward speed
 
 func _physics_process(delta):
-	# ROTATION
-	if Input.is_action_pressed("ui_left"):
-		rotation.y -= turn_speed * delta
-		#print(rotation)
-	elif Input.is_action_pressed("ui_right"):
-		rotation.y += turn_speed * delta
-		#print(rotation)
+	 # === Apply gravity ===
+	velocity.y -= gravity * delta
 	
-	# ACCELERATION / BRAKING
+	# === Handle forward/backward movement ===
 	if Input.is_action_pressed("ui_up"):
-		velocity += -transform.basis.z * acceleration * delta
-		#print(velocity)
+		speed += acceleration * delta
+		print(speed)
 	elif Input.is_action_pressed("ui_down"):
-		velocity += transform.basis.z * acceleration * delta
-		#print(velocity)
+		speed -= acceleration * delta
+		print(speed)
+	else:
+		# Natural deceleration when no input
+		if speed > 0:
+			speed = max(speed - deceleration * delta, 0)
+			print(speed)
+		elif speed < 0:
+			speed = min(speed + deceleration * delta, 0)
+			print(speed)
 		
-	# LIMIT SPEED
-	if velocity.length() > max_speed:
-		velocity = velocity.normalized() * max_speed
+	# === Clamp to max speed ===
+	speed = clamp(speed, -max_speed * 0.5, max_speed)
 	
-	#MOVE THE CAR
+	# === Handle turning (only when moving) ===
+	if abs(speed) > 1.0: 
+		if Input.is_action_pressed("ui_left"):
+			rotation.y += turn_speed * delta * (speed / max_speed)
+			#print(rotation.y)
+		elif Input.is_action_pressed("ui_right"):
+			rotation.y -= turn_speed * delta * (speed / max_speed)
+			#print(rotation.y)
+	
+	# === Get movement direction based on car's facing ===
+	var forward := -transform.basis.z
+	var right := transform.basis.x
+		
+	# === Apply grip by damping sideways velocity ===
+	var forward_velocity := forward * speed
+	var side_velocity := right * right.dot(velocity)
+	
+	# Final velocity = forward movement + reduced sideways drift 
+	# 0.2 = grippy, < 1 means less drift
+	velocity.x = (forward_velocity + side_velocity * 0.1).x
+	velocity.z = (forward_velocity + side_velocity * 0.1).z
+	
+	# === Call built-in movement function ===
 	move_and_slide()

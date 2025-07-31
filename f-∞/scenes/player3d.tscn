@@ -9,6 +9,10 @@
 [node name="Player3d" type="CharacterBody3D"]
 script = ExtResource("1_b6dr0")
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05439, 2.9583)
+current = true
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_g68ta")
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxupe0ni472hy"]
+
+[ext_resource type="PackedScene" uid="uid://n3804s8ri8dn" path="res://scenes/player3d.tscn" id="1_ajmgo"]
+[ext_resource type="PackedScene" uid="uid://dxnvsoi1pvfeu" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scenes/track.tscn" id="2_oaoit"]
+
+[node name="Main3d" type="Node3D"]
+
+[node name="Demo" parent="." instance=ExtResource("2_oaoit")]
+
+[node name="Player3d" parent="." instance=ExtResource("1_ajmgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72385, 0)

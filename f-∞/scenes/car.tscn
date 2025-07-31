@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmbkqaxx7o0wp"]
+
+[ext_resource type="Script" uid="uid://c6ab0vehdi1fe" path="res://scenes/car.gd" id="1_c35m8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b0jew"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c35m8"]
+
+[node name="Car" type="RigidBody3D"]
+linear_damp = 0.2
+angular_damp = 0.4
+script = ExtResource("1_c35m8")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05439, 2.9583)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_b0jew")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_c35m8")
