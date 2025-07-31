@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://ccs7xtede51mo"]
 
-[ext_resource type="Script" path="res://addons/gevp/scripts/vehicle.gd" id="1_e1t6n"]
-[ext_resource type="Script" path="res://addons/gevp/scripts/wheel.gd" id="2_e6c7c"]
+[ext_resource type="Script" uid="uid://cylyelrq68ibv" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scripts/vehicle.gd" id="1_e1t6n"]
+[ext_resource type="Script" uid="uid://dy01inpdfrv0e" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scripts/wheel.gd" id="2_e6c7c"]
 
 [sub_resource type="Curve" id="Curve_bt7kc"]
 _data = [Vector2(0, 0.494505), 0.0, 2.04495, 0, 0, Vector2(0.767241, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.758242), -2.03956, 0.0, 0, 0]

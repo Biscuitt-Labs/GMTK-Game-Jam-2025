@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://bbx5v4jxfxlqg"]
 
-[ext_resource type="PackedScene" uid="uid://c3ixqkc6k13yi" path="res://addons/gevp/scenes/vehicle_controller.tscn" id="1_nkhxg"]
-[ext_resource type="PackedScene" uid="uid://cd3qphnvh8fyv" path="res://addons/gevp/scenes/drift_car.tscn" id="2_aswcu"]
-[ext_resource type="PackedScene" uid="uid://b2hlchrj4h2b7" path="res://addons/gevp/scenes/engine_sound.tscn" id="3_av0fk"]
-[ext_resource type="PackedScene" uid="uid://h6vdpba71kpr" path="res://addons/gevp/scenes/smoke_effect.tscn" id="4_6x1xv"]
-[ext_resource type="Script" path="res://addons/gevp/scripts/gui.gd" id="5_fbkaj"]
-[ext_resource type="Script" path="res://addons/gevp/scripts/camera.gd" id="6_pkjob"]
-[ext_resource type="PackedScene" uid="uid://dxnvsoi1pvfeu" path="res://addons/gevp/scenes/track.tscn" id="7_1fmmg"]
-[ext_resource type="Script" path="res://addons/gevp/scripts/debug.gd" id="8_yxia2"]
-[ext_resource type="Script" path="res://addons/gevp/scripts/debug_ui.gd" id="9_l7euq"]
+[ext_resource type="PackedScene" uid="uid://c3ixqkc6k13yi" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scenes/vehicle_controller.tscn" id="1_nkhxg"]
+[ext_resource type="PackedScene" uid="uid://cd3qphnvh8fyv" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scenes/drift_car.tscn" id="2_aswcu"]
+[ext_resource type="PackedScene" uid="uid://b2hlchrj4h2b7" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scenes/engine_sound.tscn" id="3_av0fk"]
+[ext_resource type="PackedScene" uid="uid://h6vdpba71kpr" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scenes/smoke_effect.tscn" id="4_6x1xv"]
+[ext_resource type="Script" uid="uid://car5km1dnmwx" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scripts/gui.gd" id="5_fbkaj"]
+[ext_resource type="Script" uid="uid://hr4jtpw8mppg" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scripts/camera.gd" id="6_pkjob"]
+[ext_resource type="PackedScene" uid="uid://dxnvsoi1pvfeu" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scenes/track.tscn" id="7_1fmmg"]
+[ext_resource type="Script" uid="uid://dpkforls4a1y1" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scripts/debug.gd" id="8_yxia2"]
+[ext_resource type="Script" uid="uid://drbpgl82k2q3b" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scripts/debug_ui.gd" id="9_l7euq"]
 
 [node name="ArcadeDemo" type="Node3D"]
 
