@@ -13,30 +13,30 @@ func _physics_process(delta):
 	velocity.y -= gravity * delta
 	
 	# === Handle forward/backward movement ===
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("accelerate"):
 		speed += acceleration * delta
-		print(speed)
-	elif Input.is_action_pressed("ui_down"):
+		# print(speed)
+	elif Input.is_action_pressed("reverse"):
 		speed -= acceleration * delta
-		print(speed)
+		# print(speed)
 	else:
 		# Natural deceleration when no input
 		if speed > 0:
 			speed = max(speed - deceleration * delta, 0)
-			print(speed)
+			# print(speed)
 		elif speed < 0:
 			speed = min(speed + deceleration * delta, 0)
-			print(speed)
+			# print(speed)
 		
 	# === Clamp to max speed ===
 	speed = clamp(speed, -max_speed * 0.5, max_speed)
 	
 	# === Handle turning (only when moving) ===
 	if abs(speed) > 1.0: 
-		if Input.is_action_pressed("ui_left"):
+		if Input.is_action_pressed("turn left"):
 			rotation.y += turn_speed * delta * (speed / max_speed)
 			#print(rotation.y)
-		elif Input.is_action_pressed("ui_right"):
+		elif Input.is_action_pressed("turn right"):
 			rotation.y -= turn_speed * delta * (speed / max_speed)
 			#print(rotation.y)
 	
