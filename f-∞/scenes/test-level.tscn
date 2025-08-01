@@ -80,9 +80,10 @@ script = ExtResource("2_qlq2q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0467529, 2.1875, -3.21991)
 shape = SubResource("BoxShape3D_qlq2q")
 
-[node name="finish line" type="Area3D" parent="."]
+[node name="finish line" type="Area3D" parent="." node_paths=PackedStringArray("spawn_area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -82.6514)
 script = ExtResource("3_5klk1")
+spawn_area = NodePath("../player spawn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="finish line"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0467529, 2.1875, -3.21991)
