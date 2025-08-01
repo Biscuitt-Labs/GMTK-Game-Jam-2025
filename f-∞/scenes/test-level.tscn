@@ -1,44 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://40atd2riuw65"]
+[gd_scene load_steps=8 format=3 uid="uid://40atd2riuw65"]
 
-[ext_resource type="Script" uid="uid://c6ab0vehdi1fe" path="res://scenes/car.gd" id="1_qlq2q"]
+[ext_resource type="Script" uid="uid://c6ab0vehdi1fe" path="res://scripts/car.gd" id="1_qlq2q"]
 [ext_resource type="ArrayMesh" uid="uid://86hrdsk2rt70" path="res://models/test-vehicle.obj" id="2_5klk1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qlq2q"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_5klk1"]
+sky_material = SubResource("ProceduralSkyMaterial_qlq2q")
+
+[sub_resource type="Environment" id="Environment_lvb6n"]
+background_mode = 2
+sky = SubResource("Sky_5klk1")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlq2q"]
 size = Vector3(1.40845, 4.0752, 1.31543)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlq2q"]
+albedo_color = Color(0.0117647, 0.443137, 1, 1)
+metallic = 0.7
+
 [node name="Test-level" type="Node3D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365479, 0)
-use_collision = true
-size = Vector3(913.758, 0.269043, 708.127)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lvb6n")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(7581.14, 0.269043, 7523.31)
+
+[node name="test-vehicle-a" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22657, 0)
+mass = 3.0
 center_of_mass_mode = 1
-center_of_mass = Vector3(0, -1.4, 0)
 script = ExtResource("1_qlq2q")
 
-[node name="Camera3D" type="Camera3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.942711, 0.333609, 0, -0.333609, 0.942711, 0, 3.61041, 3.17577)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test-vehicle-a"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.39369e-05, 0.878403, 0.34743)
 shape = SubResource("BoxShape3D_qlq2q")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9.39369e-05, -0.34743, 0.120393)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="test-vehicle-a/CollisionShape3D"]
+transform = Transform3D(-1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 9.39369e-05, -0.34743, 0.120393)
+material_override = SubResource("StandardMaterial3D_qlq2q")
 mesh = ExtResource("2_5klk1")
 skeleton = NodePath("../../..")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.481733, -0.285256, -0.828591, -0.551329, 0.833613, 0.0335505, 0.681154, 0.472988, -0.558849, 0.0303202, 114.213, -136.732)
-light_energy = 0.504
-light_indirect_energy = 16.0
-light_specular = 7.928
-light_bake_mode = 1
-shadow_enabled = true
-shadow_bias = 1.325
+[node name="Camera3D" type="Camera3D" parent="test-vehicle-a"]
+transform = Transform3D(1, 0, 0, 0, 0.985532, 0.169487, 0, -0.169487, 0.985532, -0.00527763, 1.91635, 3.37544)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(3.69493, -0.0597785, 0.079878, 0.0915074, 3.2097, -1.83081, -0.0397539, 1.83212, 3.21001, 0.0491778, -1.49264, -11.7558)
+[node name="ramp" type="CSGBox3D" parent="."]
+transform = Transform3D(3.69493, -0.0597785, 0.079878, 0.0915074, 3.2097, -1.83081, -0.0397539, 1.83212, 3.21001, -3.06776, 0.131307, -58.8099)
+use_collision = true
 size = Vector3(1, 1, 2.23132)

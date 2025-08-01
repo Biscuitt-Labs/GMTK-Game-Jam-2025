@@ -15,9 +15,10 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("ui_down"):
 		apply_central_force(-forward * brake_force)
 
-	# Steering (only while moving)
+	# Steering (only while moving) 
+	#for some reason dir needs to be flipped vs how it is in car.gd 
 	if linear_velocity.length() > 1.0:
 		if Input.is_action_pressed("ui_left"):
-			apply_torque_impulse(Vector3.UP * steer_angle)
+			apply_torque_impulse(Vector3.UP * steer_angle) 
 		elif Input.is_action_pressed("ui_right"):
 			apply_torque_impulse(Vector3.UP * -steer_angle)
