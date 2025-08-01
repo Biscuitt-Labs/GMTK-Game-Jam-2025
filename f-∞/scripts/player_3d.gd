@@ -8,6 +8,8 @@ extends CharacterBody3D
 
 var speed := 0.0   # Current forward/backward speed
 
+#TODO recording player inputs and passing them to npc
+
 func _physics_process(delta):
 	 # === Apply gravity ===
 	velocity.y -= gravity * delta

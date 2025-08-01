@@ -42,7 +42,6 @@ albedo_color = Color(0.144063, 0.144063, 0.144063, 1)
 size = Vector3(18.0652, 5.375, 1)
 
 [node name="Test-level" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00856781, 0.0181398, -0.00985622)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
