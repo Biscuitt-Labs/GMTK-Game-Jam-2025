@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://40atd2riuw65"]
+[gd_scene load_steps=15 format=3 uid="uid://40atd2riuw65"]
 
 [ext_resource type="PackedScene" uid="uid://driuq4uy4xfpn" path="res://scenes/test_vehicle_a.tscn" id="1_tny1j"]
 [ext_resource type="Script" uid="uid://cbs5jkp6jluls" path="res://scripts/start-area.gd" id="2_qlq2q"]
 [ext_resource type="Script" uid="uid://c8okn186akhta" path="res://scripts/finish-area.gd" id="3_5klk1"]
-[ext_resource type="Script" uid="uid://pg56a4for0fc" path="res://scripts/player_spawn_marker.gd" id="4_lvb6n"]
+[ext_resource type="PackedScene" uid="uid://cd24c212h0cp3" path="res://scenes/player_spawn.tscn" id="4_lvb6n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qlq2q"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -41,9 +41,6 @@ albedo_color = Color(0.144063, 0.144063, 0.144063, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlq2q"]
 size = Vector3(18.0652, 5.375, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lvb6n"]
-size = Vector3(1.405, 1, 3.855)
-
 [node name="Test-level" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00856781, 0.0181398, -0.00985622)
 
@@ -76,31 +73,25 @@ use_collision = true
 size = Vector3(14.2393, 1, 99.8564)
 material = SubResource("StandardMaterial3D_tny1j")
 
-[node name="start" type="Area3D" parent="."]
+[node name="start line" type="Area3D" parent="."]
 script = ExtResource("2_qlq2q")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="start"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="start line"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0467529, 2.1875, -3.21991)
 shape = SubResource("BoxShape3D_qlq2q")
 
-[node name="finish" type="Area3D" parent="."]
+[node name="finish line" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -82.6514)
 script = ExtResource("3_5klk1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="finish"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="finish line"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0467529, 2.1875, -3.21991)
 shape = SubResource("BoxShape3D_qlq2q")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="player spawn" parent="." instance=ExtResource("4_lvb6n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72115, 0.28954, 0.231605)
-script = ExtResource("4_lvb6n")
 
-[node name="marker" type="Node3D" parent="Area3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_lvb6n")
-
-[connection signal="body_entered" from="start" to="start" method="_on_body_entered"]
-[connection signal="body_exited" from="start" to="start" method="_on_body_exited"]
-[connection signal="body_entered" from="finish" to="finish" method="_on_body_entered"]
-[connection signal="body_exited" from="finish" to="finish" method="_on_body_exited"]
+[connection signal="body_entered" from="start line" to="start line" method="_on_body_entered"]
+[connection signal="body_exited" from="start line" to="start line" method="_on_body_exited"]
+[connection signal="body_entered" from="finish line" to="finish line" method="_on_body_entered"]
+[connection signal="body_exited" from="finish line" to="finish line" method="_on_body_exited"]
