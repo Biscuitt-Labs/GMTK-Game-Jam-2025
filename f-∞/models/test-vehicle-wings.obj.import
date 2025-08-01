@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cqs1e12ew7vio"
+path="res://.godot/imported/test-vehicle-wings.obj-c919a6aa214b95c7fe83273bac41e141.mesh"
+
+[deps]
+
+files=["res://.godot/imported/test-vehicle-wings.obj-c919a6aa214b95c7fe83273bac41e141.mesh"]
+
+source_file="res://models/test-vehicle-wings.obj"
+dest_files=["res://.godot/imported/test-vehicle-wings.obj-c919a6aa214b95c7fe83273bac41e141.mesh", "res://.godot/imported/test-vehicle-wings.obj-c919a6aa214b95c7fe83273bac41e141.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

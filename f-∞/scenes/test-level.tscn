@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://40atd2riuw65"]
+
+[ext_resource type="Script" uid="uid://c6ab0vehdi1fe" path="res://scenes/car.gd" id="1_qlq2q"]
+[ext_resource type="ArrayMesh" uid="uid://86hrdsk2rt70" path="res://models/test-vehicle.obj" id="2_5klk1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qlq2q"]
+size = Vector3(1.40845, 4.0752, 1.31543)
+
+[node name="Test-level" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.365479, 0)
+use_collision = true
+size = Vector3(913.758, 0.269043, 708.127)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -1.4, 0)
+script = ExtResource("1_qlq2q")
+
+[node name="Camera3D" type="Camera3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.942711, 0.333609, 0, -0.333609, 0.942711, 0, 3.61041, 3.17577)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.39369e-05, 0.878403, 0.34743)
+shape = SubResource("BoxShape3D_qlq2q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9.39369e-05, -0.34743, 0.120393)
+mesh = ExtResource("2_5klk1")
+skeleton = NodePath("../../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.481733, -0.285256, -0.828591, -0.551329, 0.833613, 0.0335505, 0.681154, 0.472988, -0.558849, 0.0303202, 114.213, -136.732)
+light_energy = 0.504
+light_indirect_energy = 16.0
+light_specular = 7.928
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 1.325
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(3.69493, -0.0597785, 0.079878, 0.0915074, 3.2097, -1.83081, -0.0397539, 1.83212, 3.21001, 0.0491778, -1.49264, -11.7558)
+size = Vector3(1, 1, 2.23132)

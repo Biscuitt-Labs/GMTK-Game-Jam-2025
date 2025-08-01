@@ -15,6 +15,10 @@ run/main_scene="uid://cxupe0ni472hy"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[dotnet]
+
+project/assembly_name="f-∞"
+
 [physics]
 
 common/physics_ticks_per_second=120
