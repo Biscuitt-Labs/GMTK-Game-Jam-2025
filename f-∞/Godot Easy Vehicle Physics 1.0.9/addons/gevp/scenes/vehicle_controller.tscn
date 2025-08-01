@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3ixqkc6k13yi"]
-
-[ext_resource type="Script" uid="uid://bv3bsqwxd2mvr" path="res://Godot Easy Vehicle Physics 1.0.9/addons/gevp/scripts/vehicle_controllergd.gd" id="1_vqaod"]
-
-[node name="VehicleController" type="Node3D"]
-script = ExtResource("1_vqaod")
