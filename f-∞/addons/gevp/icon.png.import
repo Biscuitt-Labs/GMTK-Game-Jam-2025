@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cktn635oy6enu"
-path="res://.godot/imported/icon.png-540439ea6330e7f9dcb09c268f9758de.ctex"
+path="res://.godot/imported/icon.png-5c02e577949519db0d433e4823657e79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Godot Easy Vehicle Physics 1.0.9/addons/gevp/icon.png"
-dest_files=["res://.godot/imported/icon.png-540439ea6330e7f9dcb09c268f9758de.ctex"]
+source_file="res://addons/gevp/icon.png"
+dest_files=["res://.godot/imported/icon.png-5c02e577949519db0d433e4823657e79.ctex"]
 
 [params]
 
