@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxupe0ni472hy"]
 
 [ext_resource type="PackedScene" uid="uid://n3804s8ri8dn" path="res://scenes/player3d.tscn" id="1_ajmgo"]
-[ext_resource type="PackedScene" uid="uid://dxnvsoi1pvfeu" path="res://addons/Godot Easy Vehicle Physics 1.0.9/addons/gevp/scenes/track.tscn" id="2_oaoit"]
+[ext_resource type="PackedScene" uid="uid://dxnvsoi1pvfeu" path="res://addons/gevp/scenes/track.tscn" id="2_oaoit"]
 
 [node name="Main3d" type="Node3D"]
 
