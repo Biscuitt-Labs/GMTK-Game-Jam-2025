@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://25m37hvej480"]
+
+[ext_resource type="Script" uid="uid://b0grhqwl73mff" path="res://scripts/test-vehicle-b.gd" id="1_cl28b"]
+[ext_resource type="ArrayMesh" uid="uid://86hrdsk2rt70" path="res://models/test-vehicle.obj" id="2_e10he"]
+[ext_resource type="Script" uid="uid://b7skj6wslmqgd" path="res://scripts/command/MovementCommand.gd" id="3_e10he"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qlq2q"]
+size = Vector3(1.40845, 4.0752, 1.31543)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlq2q"]
+albedo_color = Color(0.0117647, 0.443137, 1, 1)
+metallic = 0.7
+
+[node name="test-vehicle-b" type="CharacterBody3D"]
+script = ExtResource("1_cl28b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -9.39369e-05, 0.878403, 0.34743)
+shape = SubResource("BoxShape3D_qlq2q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(-1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 9.39369e-05, -0.34743, 0.120393)
+material_override = SubResource("StandardMaterial3D_qlq2q")
+mesh = ExtResource("2_e10he")
+skeleton = NodePath("../../..")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.985532, 0.169487, 0, -0.169487, 0.985532, -0.00527763, 1.91635, 3.37544)
+current = true
+
+[node name="ControllerContainer" type="Node" parent="."]
+
+[node name="MovementCommandSettings" type="Node" parent="."]
+editor_description = "does the class get deleted from the whole test level scene if this vehicle is destroyed?"
+script = ExtResource("3_e10he")

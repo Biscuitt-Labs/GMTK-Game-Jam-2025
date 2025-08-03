@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="f-∞"
-run/main_scene="uid://40atd2riuw65"
+run/main_scene="uid://dvrqv3q5ss465"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -54,4 +54,3 @@ reverse={
 [physics]
 
 common/physics_ticks_per_second=120
-3d/physics_engine="Jolt Physics"

@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var max_speed := 30.0          # Max forward speed
 @export var turn_speed := 2.5          # How fast the car turns
 @export var gravity := 8.0           # Gravity pulling the car down
+@export var grip := 0.1           # 0.2 = grippy, < 1 means less drift
 
 var speed := 0.0   # Current forward/backward speed
 
@@ -52,8 +53,8 @@ func _physics_process(delta):
 	
 	# Final velocity = forward movement + reduced sideways drift 
 	# 0.2 = grippy, < 1 means less drift
-	velocity.x = (forward_velocity + side_velocity * 0.1).x
-	velocity.z = (forward_velocity + side_velocity * 0.1).z
+	velocity.x = (forward_velocity + side_velocity * grip).x
+	velocity.z = (forward_velocity + side_velocity * grip).z
 	
 	# === Call built-in movement function ===
 	move_and_slide()
