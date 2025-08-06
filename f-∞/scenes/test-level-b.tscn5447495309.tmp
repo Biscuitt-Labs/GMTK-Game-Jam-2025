@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dvrqv3q5ss465"]
 
-[ext_resource type="PackedScene" uid="uid://wnooaladb6k1" path="res://scenes/test_vehicle_b.tscn" id="1_smlhy"]
+[ext_resource type="PackedScene" uid="uid://25m37hvej480" path="res://scenes/test_vehicle_b.tscn" id="1_smlhy"]
 [ext_resource type="Script" uid="uid://cbs5jkp6jluls" path="res://scripts/start-area.gd" id="2_2rwfb"]
 [ext_resource type="Script" uid="uid://c8okn186akhta" path="res://scripts/finish-area.gd" id="3_ubagg"]
 [ext_resource type="PackedScene" uid="uid://cd24c212h0cp3" path="res://scenes/player_spawn.tscn" id="4_73d2h"]
@@ -51,6 +51,9 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lvb6n")
 
+[node name="test-vehicle-b" parent="." instance=ExtResource("1_smlhy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37235, 0.690737, 0)
+
 [node name="ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0106812, 0.0771074, -0.00830841)
 use_collision = true
@@ -67,8 +70,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00882912, 0.0760884, -45.2
 use_collision = true
 size = Vector3(14.2393, 1, 99.8564)
 material = SubResource("StandardMaterial3D_tny1j")
-
-[node name="Player" parent="." instance=ExtResource("1_smlhy")]
 
 [node name="start line" type="Area3D" parent="."]
 script = ExtResource("2_2rwfb")
@@ -93,3 +94,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72115, 0.28954, 0.231605)
 [connection signal="body_exited" from="start line" to="start line" method="_on_body_exited"]
 [connection signal="body_entered" from="finish line" to="finish line" method="_on_body_entered"]
 [connection signal="body_exited" from="finish line" to="finish line" method="_on_body_exited"]
+
+[editable path="test-vehicle-b"]

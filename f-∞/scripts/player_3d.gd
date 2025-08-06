@@ -1,3 +1,4 @@
+class_name Player3D
 extends CharacterBody3D
 
 @export var acceleration := 20.0       # How fast the car speeds up

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://wnooaladb6k1"]
+[gd_scene load_steps=7 format=3 uid="uid://25m37hvej480"]
 
-[ext_resource type="Script" uid="uid://c6ab0vehdi1fe" path="res://scripts/car.gd" id="1_cl28b"]
+[ext_resource type="Script" uid="uid://b0grhqwl73mff" path="res://scripts/test-vehicle-b.gd" id="1_cl28b"]
 [ext_resource type="ArrayMesh" uid="uid://86hrdsk2rt70" path="res://models/test-vehicle.obj" id="2_e10he"]
+[ext_resource type="Script" uid="uid://b7skj6wslmqgd" path="res://scripts/command/MovementCommand.gd" id="3_e10he"]
+[ext_resource type="Script" uid="uid://uigaq3qiagkk" path="res://scripts/PlayerController.gd" id="3_s0xya"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qlq2q"]
 size = Vector3(1.40845, 4.0752, 1.31543)
@@ -10,7 +12,7 @@ size = Vector3(1.40845, 4.0752, 1.31543)
 albedo_color = Color(0.0117647, 0.443137, 1, 1)
 metallic = 0.7
 
-[node name="Player" type="RigidBody3D"]
+[node name="test-vehicle-b" type="CharacterBody3D"]
 script = ExtResource("1_cl28b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -28,6 +30,14 @@ transform = Transform3D(1, 0, 0, 0, 0.985532, 0.169487, 0, -0.169487, 0.985532, 
 current = true
 
 [node name="ControllerContainer" type="Node" parent="."]
+script = ExtResource("3_s0xya")
 
 [node name="MovementCommandSettings" type="Node" parent="."]
 editor_description = "does the class get deleted from the whole test level scene if this vehicle is destroyed?"
+script = ExtResource("3_e10he")
+acceleration = null
+deceleration = null
+max_speed = null
+turn_speed = null
+gravity = null
+grip = null
