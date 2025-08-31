@@ -12,6 +12,12 @@ metallic = 0.7
 
 [node name="test-vehicle-b" type="CharacterBody3D"]
 script = ExtResource("1_cl28b")
+acceleration = null
+deceleration = null
+max_speed = null
+turn_speed = null
+gravity = null
+grip = null
 metadata/_custom_type_script = "uid://xxqauql0fnfm"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
