@@ -7,5 +7,5 @@ func _init(src, tgt):
 	source = src
 	target = tgt
 
-func execute(delta: float):
+func execute(_delta: float):
 	pass
