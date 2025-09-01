@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm2utgsxteygi"]
+
+[ext_resource type="Script" uid="uid://pg56a4for0fc" path="res://scripts/player_spawn.gd" id="1_wgyjj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvb6n"]
+size = Vector3(1.405, 1, 3.855)
+
+[node name="player spawn" type="Area3D"]
+script = ExtResource("1_wgyjj")
+
+[node name="marker" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lvb6n")

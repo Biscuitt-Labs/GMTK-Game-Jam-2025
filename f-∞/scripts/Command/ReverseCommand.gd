@@ -2,10 +2,10 @@ class_name ReverseCommand
 extends Command
 
 func _init(src, tgt):
-	super(src, tgt) #call parent constructor
+    super(src, tgt) # call parent constructor
 
 func execute(delta: float):
-	#print("Moving towards %s!" % direction)
-	target.speed -= target.acceleration * delta
-	print(target.speed)
-	target.move_and_slide()
+    # print("Moving towards %s!" % direction)
+    target.speed -= target.acceleration * delta
+    print(target.speed)
+    # target.move_and_slide()

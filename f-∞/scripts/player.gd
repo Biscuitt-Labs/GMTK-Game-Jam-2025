@@ -1,30 +1,25 @@
-extends CharacterBody2D
+class_name Player
+extends CharacterBody3D
 
-@export var acceleration := 300.0
-@export var max_speed := 600.0
-@export var turn_speed := 3.0
-#var velocity := Vector2.ZERO
+@export var acceleration := 20.0       # How fast the car speeds up
+@export var deceleration := 8.0        # How fast the car slows down when not accelerating
+@export var max_speed := 30.0          # Max forward speed
+@export var turn_speed := 2.5          # How fast the car turns
+@export var gravity := 8.0           # Gravity pulling the car down
+@export var grip := 0.1           # 0.2 = grippy, < 1 means less drift
 
-func _physics_process(delta):
-	# ROTATION
-	if Input.is_action_pressed("ui_left"):
-		rotation -= turn_speed * delta
-		#print(rotation)
-	elif Input.is_action_pressed("ui_right"):
-		rotation += turn_speed * delta
-		#print(rotation)
+@onready var _controller_container = $ControllerContainer
+@onready var _controller: Controller
+
+@export var speed := 0.0   # Current forward/backward speed
+
+func _ready() -> void:
+	setController(Controller.new(self))
+
+func setController(controller:Controller) -> void:
+	#delete all previous controllers
+	for child in _controller_container.get_children():
+		child.queue_free()
 	
-	# ACCELERATION / BRAKING
-	if Input.is_action_pressed("ui_up"):
-		velocity += Vector2.UP.rotated(rotation) * acceleration * delta
-		#print(velocity)
-	elif Input.is_action_pressed("ui_down"):
-		velocity -= Vector2.UP.rotated(rotation) * acceleration * delta
-		#print(velocity)
-		
-	# LIMIT SPEED
-	if velocity.length() > max_speed:
-		velocity = velocity.normalized() * max_speed
-	
-	#MOVE THE CAR
-	move_and_slide()
+	_controller = controller
+	_controller_container.add_child(_controller)
